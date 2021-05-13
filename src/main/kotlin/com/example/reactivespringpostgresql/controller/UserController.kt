@@ -28,5 +28,5 @@ class UserController(private val service: UserService) {
     fun updateCustomer(@RequestBody user: UserEntity, @PathVariable userId: Int): Mono<UserEntity> = service.updateUser(user,userId)
 
     @DeleteMapping("/{userId}")
-    fun deleteUser(@PathVariable userId: Int) = service.deleteUser(userId)
+    fun deleteUser(@PathVariable userId: Int): Mono<Void> = service.deleteUser(userId)
 }
