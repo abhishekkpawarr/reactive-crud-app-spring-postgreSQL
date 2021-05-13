@@ -9,8 +9,8 @@ import reactor.core.publisher.Mono
 class UserService(private val repository: UserRepository) {
     fun getUsers() = repository.findAll()
     fun getUser(userId: Int) = repository.findById(userId)
-    fun updateUser(user: UserEntity): Mono<UserEntity> {
-        repository.delete(user)
+    fun updateUser(user: UserEntity, userId: Int): Mono<UserEntity> {
+        repository.deleteById(userId)
         return repository.save(user)
     }
     fun createUser(user:UserEntity) = repository.save(user)

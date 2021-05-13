@@ -25,7 +25,7 @@ class UserController(private val service: UserService) {
     fun createUser(@RequestBody user: UserEntity): Mono<UserEntity> = service.createUser(user)
 
     @PutMapping("/{userId}")
-    fun updateCustomer(@RequestBody user: UserEntity, @PathVariable userId: Int): Mono<UserEntity> = service.updateUser(user)
+    fun updateCustomer(@RequestBody user: UserEntity, @PathVariable userId: Int): Mono<UserEntity> = service.updateUser(user,userId)
 
     @DeleteMapping("/{userId}")
     fun deleteUser(@PathVariable userId: Int) = service.deleteUser(userId)
